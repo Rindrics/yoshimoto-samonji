@@ -7,25 +7,24 @@ library(frasyr)
 #* @apiTag vpa Operations for Virtual Population Analysis
 #* @apiTag stock_assessment Operations for stock assessment
 
-#* Echo back the input
+#* Run VPA
 #* @tag vpa
-#* @param msg The message to echo
-#* @get /vpa/echo
-vpa(
-    data.handler(
-        caa = read.csv("../../data/ex2_caa.csv", row.names = 1),
-        waa = read.csv("../../data/ex2_waa.csv", row.names = 1),
-        maa = read.csv("../../data/ex2_maa.csv", row.names = 1),
-        M = 0.5
-    ),
-    fc.year = 2015:2017,
-    tf.year = 2015:2016,
-    term.F  = "max",
-    stat.tf = "mean",
-    Pope    = TRUE,
-    tune    = FALSE,
-    p.init  = 0.5
-)
-function(msg="") {
-  list(msg = paste0("The message is: '", msg, "'"))
+#* @get /vpa
+function() {
+    result_vpa <- vpa(
+        data.handler(
+            caa = read.csv("../../data/ex2_caa.csv", row.names = 1),
+            waa = read.csv("../../data/ex2_waa.csv", row.names = 1),
+            maa = read.csv("../../data/ex2_maa.csv", row.names = 1),
+            M = 0.5
+        ),
+        fc.year = 2015:2017,
+        tf.year = 2015:2016,
+        term.F  = "max",
+        stat.tf = "mean",
+        Pope    = TRUE,
+        tune    = FALSE,
+        p.init  = 0.5
+    )
+    result_vpa$wcaa
 }
