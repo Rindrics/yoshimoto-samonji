@@ -14,6 +14,8 @@ library(frasyr)
 #* @param urlWaa: URL to obtain weight-at-age data in csv
 #* @param urlMaa: URL to obtain maturation-at-age data in csv
 #* @param m: Natural mortality in decimal (default: 0.5)
+#* @response 200 list(wcaa = list(year = integer(), age = integer(), wcaa = numeric()))
+#* @serializer unboxedJSON
 function(
     urlCaa = "https://raw.githubusercontent.com/ichimomo/frasyr/dev/data-raw/ex2_caa.csv",
     urlWaa = "https://raw.githubusercontent.com/ichimomo/frasyr/dev/data-raw/ex2_waa.csv",
@@ -35,5 +37,13 @@ function(
         tune    = FALSE,
         p.init  = 0.5
     )
-    result_vpa$wcaa
+    wcaa <- as.data.frame(result_vpa$wcaa)
+    setNames(
+        lapply(seq_len(nrow(wcaa)), function(i) {
+        x <- unlist(wcaa[i, ], use.names = FALSE)
+        names(x) <- colnames(wcaa)
+        as.list(x)
+      }),
+      paste0("age", seq_len(nrow(wcaa)) - 1)
+    )
 }
