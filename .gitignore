@@ -7,3 +7,7 @@ node_modules/
 schemathesis-result.xml
 schema-coverage.html
 .schemathesis/
+
+# Documentation build artifacts
+site/
+docs/services/**

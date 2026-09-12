@@ -5,8 +5,8 @@
   "scripts": {
     "prepare": "husky install",
     "docs:install": "python3 -m pip install -r requirements.txt",
-    "docs:build": "zensical build",
-    "docs:serve": "zensical serve"
+    "docs:build": "bash scripts/build-docs.sh",
+    "docs:serve": "bash scripts/serve-docs.sh"
   },
   "devDependencies": {
     "husky": "^9.1.7",
