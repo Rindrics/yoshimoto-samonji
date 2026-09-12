@@ -1,0 +1,49 @@
+[project]
+site_name = "Handbook of Japan Stock Assessment Platform"
+site_description = "An unofficial, open-source platform for fisheries stock assessment in Japan"
+repo_url = "https://github.com/rindrics/yoshimoto-samonji"
+edit_uri = "edit/main/"
+
+docs_dir = "docs"
+site_dir = "site"
+
+[project.theme]
+name = "material"
+language = "en"
+features = [
+  "header.autohide",
+  "navigation.instant",
+  "navigation.tracking",
+  "navigation.tabs",
+  "navigation.tabs.sticky",
+  "navigation.top",
+  "search.suggest",
+  "search.highlight",
+  "content.code.copy",
+  "content.code.annotate"
+]
+
+markdown_extensions = [
+  "admonition",
+  "attr_list",
+  "def_list",
+  "footnotes",
+  "md_in_html",
+  "toc",
+  "pymdownx.arithmatex",
+  "pymdownx.betterem",
+  "pymdownx.caret",
+  "pymdownx.details",
+  "pymdownx.emoji",
+  "pymdownx.highlight",
+  "pymdownx.inlinehilite",
+  "pymdownx.keys",
+  "pymdownx.mark",
+  "pymdownx.smartsymbols",
+  "pymdownx.superfences",
+  "pymdownx.tabbed",
+  "pymdownx.tasklist",
+  "pymdownx.tilde"
+]
+
+plugins = ["search", "redirects"]

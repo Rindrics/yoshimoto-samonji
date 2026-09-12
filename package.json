@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "description": "Yoshimoto Samonji API",
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "docs:install": "python3 -m pip install -r requirements.txt",
+    "docs:build": "bash scripts/build-docs.sh",
+    "docs:serve": "bash scripts/serve-docs.sh"
   },
   "devDependencies": {
     "husky": "^9.1.7",
